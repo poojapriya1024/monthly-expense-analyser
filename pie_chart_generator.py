@@ -13,26 +13,8 @@ def create_pie_chart(data):
     plt.show()
 
 
-
-
-expenses = [
-    'Water Bill',
-    'Electric Bill',
-    'Vet bills',
-    'Vegetables',
-    'Fruits',
-    'Snacks',
-    'Shopping Clothes',
-    'Dining Out',
-    'Movies',
-    'Gym Membership',
-    'Medicines',
-    'Petrol fare',
-    'Cable bill',
-    'Travel Savings',
-    'Educational Savings',
-    'Housing Loan'
-]
+expenses = ['Water Bill','Electric Bill','Vet bills','Vegetables','Fruits','Snacks','Shopping Clothes','Dining Out','Movies',
+    'Gym Membership','Medicines','Petrol fare','Cable bill','Travel Savings','Educational Savings','Housing Loan']
 
 expense_categories = {
     'Bills': ['bills', 'bill', 'deposit','loan'],
