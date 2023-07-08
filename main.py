@@ -52,12 +52,14 @@ def sort_expenses(expenses, amounts):
 def create_pie_chart(data):
     labels = list(data.keys())
     values = list(data.values())
-    colors = ['#799EF6', '#4ADEDE', '#1AA7EC', '#1E2F97', '#128FC8', '#FFE45C']
-
+    colors = ['#787FF6','#7BD5F5', '#4ADEDE', '#1CA7EC', '#1F2F98', '#FFE45C']
+    plt.figure(dpi=300) 
     plt.pie(values, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     plt.axis('equal')
+    plt.title('Expense Analyser', fontsize=16)
     plt.tight_layout()
-    plt.savefig('pie_chart.png')  # Saving the chart as an image 
+    plt.subplots_adjust(top=0.8)
+    plt.savefig('pie_chart.png', dpi=300)  
 
 def excel_to_list(dataframe):
     # Reads the content and divides them into categories 
@@ -69,17 +71,16 @@ def excel_to_list(dataframe):
     generate_pdf(expense_amount)
 
 
-def generate_pdf(expense_amount): 
-    # Creates the pie chart and generates the PDF
+def generate_pdf(expense_amount):
     create_pie_chart(expense_amount)
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font('Arial', 'B', 16)
-    pdf.cell(0, 10, 'Expense Breakdown', ln=True, align='C')
-    pdf.image('pie_chart.png', x=10, y=10, w=190)  # Add the image to the PDF
-    # Request path from the user
-    output_path = r'C:\Users\Pooja priya\OneDrive\Desktop\test1.pdf'
+    pdf.rect(5.0, 5.0, 200.0, 287.0)  
+    pdf.image('pie_chart.png', x=10, y=pdf.get_y() + 10, w=190)
+    output_path = r'C:\Users\Pooja priya\OneDrive\Desktop\finalTest.pdf'
     pdf.output(output_path)
+    
 
 @app.post('/download')
 def download_chart():
