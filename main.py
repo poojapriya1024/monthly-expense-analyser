@@ -78,7 +78,7 @@ def generate_pdf(expense_amount):
     pdf.set_font('Arial', 'B', 16)
     pdf.rect(5.0, 5.0, 200.0, 287.0)  
     pdf.image('pie_chart.png', x=10, y=pdf.get_y() + 10, w=190)
-    output_path = r'C:\Users\Pooja priya\OneDrive\Desktop\chart.pdf'
+    output_path = r'C:\Users\Pooja priya\OneDrive\Desktop\myReport.pdf'
     pdf.output(output_path)
     
 
