@@ -4,7 +4,7 @@ import re
 from fpdf import FPDF
 import matplotlib.pyplot as plt
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.get('/')
 def upload():
@@ -13,7 +13,7 @@ def upload():
 def sort_expenses(expenses, amounts):
     expense_categories = {
         'Bills': ['bills', 'bill', 'deposit', 'loan'],
-        'Food & Groceries': ['vegetables', 'fruits', 'food', 'snacks'],
+        'Food & Groceries': ['vegetables', 'fruits', 'food', 'snacks','Swiggy','Zomato'],
         'Entertainment': ['shopping', 'footwear', 'movies', 'dining'],
         'Health Care & Self Care': ['gym', 'medicines'],
         'Transportation': ['petrol', 'diesel', 'bus', 'car', 'train'],
@@ -78,7 +78,7 @@ def generate_pdf(expense_amount):
     pdf.set_font('Arial', 'B', 16)
     pdf.rect(5.0, 5.0, 200.0, 287.0)  
     pdf.image('pie_chart.png', x=10, y=pdf.get_y() + 10, w=190)
-    output_path = r'C:\Users\Pooja priya\OneDrive\Desktop\finalTest.pdf'
+    output_path = r'C:\Users\Pooja priya\OneDrive\Desktop\chart.pdf'
     pdf.output(output_path)
     
 
