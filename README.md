@@ -68,6 +68,14 @@ monthly-expense-analyser/
 - The output PDF path in `generate_pdf()` is currently hardcoded. Update it to your desired location.
 - Ensure your Excel file has columns named exactly **Description** and **Amount**.
 
+## v1.1 – Added Input Sanitization
+- Added file type validation (allowed_file)
+- Sanitized filename using os.path.basename()
+- Validated Excel columns before processing
+- Sanitized and cleaned dataframe content (dropna, astype(str), numeric conversion)
+- Escaped HTML output to prevent injection
+- No behavior change — it still generates the same PDF
+
 ## Future Improvements
 - Allow users to set custom categories
 - Enable direct download of the generated PDF through the web app
